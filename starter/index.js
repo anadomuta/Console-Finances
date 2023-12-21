@@ -86,3 +86,28 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// Financial Analysis Title
+console.log("Financial Analysis");
+console.log("----------------------------");
+
+// 1. Total Months: 86 = total number of months included in the dataset
+var totalMonths;
+var totalMonths = finances.length;
+console.log("Total Months: " + totalMonths);
+
+// 2. Total: $38382578 = net total amount of Profit/Losses over the entire period
+
+
+
+// 3. Average Change: -2315.12 = avg of the changes in Profit/Losses over the entire period.
+
+// You will need to track what the total change in profits is from month to month and then find the average.
+
+//(`Total/(Number of months - 1)`)
+
+
+// 4. Greatest Increase in Profits/Losses: Feb-2012 ($1926159)
+
+
+// 5. Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)
