@@ -91,13 +91,17 @@ var finances = [
 console.log("Financial Analysis");
 console.log("----------------------------");
 
-// 1. Total Months: 86 = total number of months included in the dataset
-var totalMonths;
+// Total Months = total number of months included in the dataset
 var totalMonths = finances.length;
 console.log("Total Months: " + totalMonths);
 
-// 2. Total: $38382578 = net total amount of Profit/Losses over the entire period
+// Total: $38382578 = net total amount of Profit/Losses over the entire period
+var sum = 0;
 
+for (let i = 0; i < finances.length; i++) {
+  sum += finances[i][1];
+}
+console.log("Total: " + "$" + sum);
 
 
 // 3. Average Change: -2315.12 = avg of the changes in Profit/Losses over the entire period.
