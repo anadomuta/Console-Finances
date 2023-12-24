@@ -87,31 +87,42 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-// Financial Analysis Title
+
+// Variable declarations
+const totalMonths = finances.length;
+let sum = 0;
+let monthlyChange;
+let changes = [];
+let total = 0;
+let averageTotalChange;
+
+// Net total amount of profit/losses over the entire perios
+for (let i = 0; i < totalMonths; i++) {
+  sum += finances[i][1]; 
+}
+
+// Track monthly total change in profits and storing of values in new "changes" array
+for (let i = 0; i < (totalMonths - 1); i++) {
+  monthlyChange = finances[i + 1][1] - finances[i][1];
+  changes.push(monthlyChange);
+};
+
+// Calculate total of monthly changes by summing the elements of the new array
+for (let j = 0; j < changes.length; j++) {
+  total += changes[j];
+}
+
+averageTotalChange = total / (totalMonths - 1);
+
+// 4. Greatest Increase in Profits/Losses: Feb-2012 ($1926159)// -----------------------------------------------------------
+
+
+
+// 5. Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)// -----------------------------------------------------------
+
+// Analysis print to console
 console.log("Financial Analysis");
 console.log("----------------------------");
-
-// Total Months = total number of months included in the dataset
-var totalMonths = finances.length;
 console.log("Total Months: " + totalMonths);
-
-// Total: $38382578 = net total amount of Profit/Losses over the entire period
-var sum = 0;
-
-for (let i = 0; i < finances.length; i++) {
-  sum += finances[i][1];
-}
 console.log("Total: " + "$" + sum);
-
-
-// 3. Average Change: -2315.12 = avg of the changes in Profit/Losses over the entire period.
-
-// You will need to track what the total change in profits is from month to month and then find the average.
-
-//(`Total/(Number of months - 1)`)
-
-
-// 4. Greatest Increase in Profits/Losses: Feb-2012 ($1926159)
-
-
-// 5. Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)
+console.log("Average Change: " + averageTotalChange.toFixed(2));
