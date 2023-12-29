@@ -89,36 +89,57 @@ var finances = [
 
 
 // Variable declarations
-const totalMonths = finances.length;
+let totalMonths;
 let sum = 0;
 let monthlyChange;
 let changes = [];
 let total = 0;
 let averageTotalChange;
+let date;
+let currentAmount;
+let previousAmount;
+let diffAmount;
+let maxIncrease = {
+  date: "",
+  diff: 0
+};
+let minIncrease = {
+  date: "",
+  diff: 0
+};
 
-// Net total amount of profit/losses over the entire perios
+
+// Total number of months
+totalMonths = finances.length;
+
+// Net total amount of profit/losses over the entire period
 for (let i = 0; i < totalMonths; i++) {
   sum += finances[i][1]; 
 }
 
-// Track monthly total change in profits and storing of values in new "changes" array
+// Average of the changes in Profit/Losses
 for (let i = 0; i < (totalMonths - 1); i++) {
-  monthlyChange = finances[i + 1][1] - finances[i][1];
-  changes.push(monthlyChange);
+  monthlyChange = finances[i + 1][1] - finances[i][1]; // track monthly change
+  changes.push(monthlyChange); // store values in new array
 };
 
-// Calculate total of monthly changes by summing the elements of the new array
-for (let j = 0; j < changes.length; j++) {
-  total += changes[j];
+for (let i = 0; i < changes.length; i++) {
+  total += changes[i]; // calculate total change
 }
 
-averageTotalChange = total / (totalMonths - 1);
+averageTotalChange = total / (totalMonths - 1); 
 
-// 4. Greatest Increase in Profits/Losses: Feb-2012 ($1926159)// -----------------------------------------------------------
-
-
-
-// 5. Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)// -----------------------------------------------------------
+// Greatest Increase in Profits/Losses
+for (let i = 1; i < totalMonths; i++) {
+  date = finances[i][0];
+  currentAmount = finances[i][1];
+  previousAmount = finances[i - 1][1];
+  diffAmount = currentAmount - previousAmount; //calculate monthly diff 
+  
+  if (diffAmount > maxIncrease.diff) {
+    maxIncrease.date = date;
+    maxIncrease.diff = diffAmount;
+  }
 
 // Analysis print to console
 console.log("Financial Analysis");
@@ -126,3 +147,5 @@ console.log("----------------------------");
 console.log("Total Months: " + totalMonths);
 console.log("Total: " + "$" + sum);
 console.log("Average Change: " + averageTotalChange.toFixed(2));
+console.log("Greatest Increase in Profits/Losses: " + maxIncrease.date + " ($" + maxIncrease.diff + ")");
+console.log("Greatest Decrease in Profits/Losses: " + minIncrease.date + " ($" + minIncrease.diff + ")");
