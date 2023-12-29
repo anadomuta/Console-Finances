@@ -89,27 +89,15 @@ var finances = [
 
 
 // Variable declarations
-let totalMonths;
+let totalMonths = finances.length;
 let sum = 0;
 let monthlyChange;
 let changes = [];
 let total = 0;
 let averageTotalChange;
-let date;
-let currentAmount;
-let previousAmount;
-let diffAmount;
-let maxIncrease = {
-  date: "",
-  diff: 0
-};
-let minIncrease = {
-  date: "",
-  diff: 0
-};
-
-// Total number of months
-totalMonths = finances.length;
+let currentDate, currentAmount, previousAmount, diffAmount;
+let maxIncreaseDate = "", maxIncreaseDiff = 0;
+let minIncreaseDate = "", minIncreaseDiff = 0;
 
 // Net total amount of profit/losses 
 for (let i = 0; i < totalMonths; i++) {
@@ -119,31 +107,28 @@ for (let i = 0; i < totalMonths; i++) {
 // Average of changes in Profit/Losses 
 for (let i = 0; i < (totalMonths - 1); i++) {
   monthlyChange = finances[i + 1][1] - finances[i][1]; // track monthly change
-  changes.push(monthlyChange); // store values in new array
-};
-
-for (let i = 0; i < changes.length; i++) {
-  total += changes[i]; // calculate total change
+  changes.push(monthlyChange); // push values in new array
+  total += monthlyChange; 
 }
 
 averageTotalChange = total / (totalMonths - 1);
 
 // Greatest Increase in Profits/Losses
 for (let i = 1; i < totalMonths; i++) {
-  date = finances[i][0];
+  currentDate = finances[i][0];
   currentAmount = finances[i][1];
   previousAmount = finances[i - 1][1];
-  diffAmount = currentAmount - previousAmount; //calculate monthly diff in Profits/Losses
+  diffAmount = currentAmount - previousAmount; // calculate monthly diff in Profits/Losses
 
-  if (diffAmount > maxIncrease.diff) {
-    maxIncrease.date = date;
-    maxIncrease.diff = diffAmount;
+  if (diffAmount > maxIncreaseDiff) { // check if current monthly diff is greater than max increase
+    maxIncreaseDate = currentDate;
+    maxIncreaseDiff = diffAmount;
   }
 
 // Greatest Decrease in Profits/Losses
-  if (diffAmount < minIncrease.diff) {
-    minIncrease.date = date;
-    minIncrease.diff = diffAmount;
+  if (diffAmount < minIncreaseDiff) { // check if current monthly diff is lower than min decrease
+    minIncreaseDate = currentDate;
+    minIncreaseDiff = diffAmount;
   }
 }
 
@@ -153,5 +138,5 @@ console.log("----------------------------");
 console.log("Total Months: " + totalMonths);
 console.log("Total: " + "$" + sum);
 console.log("Average Change: " + averageTotalChange.toFixed(2));
-console.log("Greatest Increase in Profits/Losses: " + maxIncrease.date + " ($" + maxIncrease.diff + ")");
-console.log("Greatest Decrease in Profits/Losses: " + minIncrease.date + " ($" + minIncrease.diff + ")");
+console.log("Greatest Increase in Profits/Losses: " + maxIncreaseDate + " ($" + maxIncreaseDiff + ")");
+console.log("Greatest Decrease in Profits/Losses: " + minIncreaseDate + " ($" + minIncreaseDiff + ")");
