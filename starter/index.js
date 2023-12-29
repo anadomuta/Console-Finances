@@ -108,16 +108,15 @@ let minIncrease = {
   diff: 0
 };
 
-
 // Total number of months
 totalMonths = finances.length;
 
-// Net total amount of profit/losses over the entire period
+// Net total amount of profit/losses 
 for (let i = 0; i < totalMonths; i++) {
-  sum += finances[i][1]; 
+  sum += finances[i][1];
 }
 
-// Average of the changes in Profit/Losses
+// Average of changes in Profit/Losses 
 for (let i = 0; i < (totalMonths - 1); i++) {
   monthlyChange = finances[i + 1][1] - finances[i][1]; // track monthly change
   changes.push(monthlyChange); // store values in new array
@@ -127,19 +126,26 @@ for (let i = 0; i < changes.length; i++) {
   total += changes[i]; // calculate total change
 }
 
-averageTotalChange = total / (totalMonths - 1); 
+averageTotalChange = total / (totalMonths - 1);
 
 // Greatest Increase in Profits/Losses
 for (let i = 1; i < totalMonths; i++) {
   date = finances[i][0];
   currentAmount = finances[i][1];
   previousAmount = finances[i - 1][1];
-  diffAmount = currentAmount - previousAmount; //calculate monthly diff 
-  
+  diffAmount = currentAmount - previousAmount; //calculate monthly diff in Profits/Losses
+
   if (diffAmount > maxIncrease.diff) {
     maxIncrease.date = date;
     maxIncrease.diff = diffAmount;
   }
+
+// Greatest Decrease in Profits/Losses
+  if (diffAmount < minIncrease.diff) {
+    minIncrease.date = date;
+    minIncrease.diff = diffAmount;
+  }
+}
 
 // Analysis print to console
 console.log("Financial Analysis");
