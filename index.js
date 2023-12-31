@@ -107,7 +107,7 @@ for (let i = 0; i < totalMonths; i++) {
 // Average of changes in Profit/Losses 
 for (let i = 0; i < (totalMonths - 1); i++) {
   monthlyChange = finances[i + 1][1] - finances[i][1]; // track monthly change
-  changes.push(monthlyChange); // push values in new array
+  changes.push(monthlyChange); // push values to "changes" array
   total += monthlyChange; 
 }
 
