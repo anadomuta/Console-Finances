@@ -25,7 +25,7 @@ In addition, the following resources were used:
 1. W3School Article: [Best Practices for writing JavaScript](https://www.w3schools.com/js/js_best_practices.asp)
 2. freeCodeCamp Article: [JavaScript 2D Array](https://www.freecodecamp.org/news/javascript-2d-arrays/)
 3. YouTube tutorial: [JavaScript for Beginners #30 - Two Dimensional Arrays Part 2](https://www.youtube.com/watch?v=ajSXu2D2gzg)
-4. [Shields.io](https://shields.io/) for badges
+4. Markdown badges from [ileriayo](https://github.com/Ileriayo/markdown-badges?tab=readme-ov-file#markdown-badges)
 
 
 ## License
