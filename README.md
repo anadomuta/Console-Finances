@@ -13,7 +13,7 @@ The project represents an analysis of a company's financial records. It includes
 
 The view the results of the analysis, please right click on the page, and tap on "Inspect" to open the console.
 
-![Screenshot of the console](./images/webpage-screenshot.PNG)
+![Screenshot of the console](./webpage-screenshot.PNG)
 
 ## Credits
 
