@@ -11,7 +11,9 @@ The project represents an analysis of a company's financial records. It includes
 
 ## Usage
 
-The view the results of the analysis, please right click on the page, and tap on "Inspect" to open the console.
+The webpage can be accessed using this URL: https://anadomuta.github.io/challenge-console-finances/
+
+The view the results of the analysis, please right click on the page, and tap on "Inspect" to open the console. The screenshot below displays the console outlook:
 
 ![Screenshot of the console](./webpage-screenshot.PNG)
 
